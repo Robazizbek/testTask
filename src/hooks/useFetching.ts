@@ -8,7 +8,7 @@ const useFetching = () => {
   const getData = async (): Promise<MainData[] | undefined> => {
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:3000/data.json");
+      const response = await fetch(process.env.REACT_APP_MAIN_URL || '');
       const data = await response.json();
       return data;
     } catch (error) {
